@@ -4,6 +4,21 @@ import {BuildOptions} from "./types/config";
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+        type: 'asset/resource' ,
+        // use: [
+        //     {
+        //         loader: 'file-loader',
+        //     },
+        // ],
+    }
+
     //Если не используем typescript тогда необходимо установаливать babel-loader
     const typescriptLoader = {
         test: /\.tsx?$/,
@@ -14,7 +29,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const styleLoader = {
         test: /\.s[ac]ss$/i,
         use: [
-             // Create separate css fine when building
+            // Create separate css fine when building
             options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
                 loader: "css-loader",
@@ -33,6 +48,8 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     }
 
     return [
+        svgLoader,
+        fileLoader,
         typescriptLoader,
         styleLoader
     ]
