@@ -3,6 +3,7 @@
   width: var(--sidebar-width);
   background: var(--inverted-bg-color);
 
+
   position: relative;
   transition: width 0.3s;
 }
@@ -18,5 +19,15 @@
 
   display: flex;
   justify-content: center;
+}
+
+.switcher_collapse {
+  flex-direction: column;
+  align-items: center;
+}
+
+.lang {
+  margin-left: 20px;
+  color: var(--inverted-primary-color);
 }
 
