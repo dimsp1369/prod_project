@@ -9,9 +9,20 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     }
 
+    const babelLoader = {
+        test: /\.(jsx|js|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env']
+            }
+        }
+    }
+
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff|woff2)$/i,
-        type: 'asset/resource' ,
+        type: 'asset/resource',
         // use: [
         //     {
         //         loader: 'file-loader',
@@ -50,6 +61,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     return [
         svgLoader,
         fileLoader,
+        babelLoader,
         typescriptLoader,
         styleLoader
     ]
