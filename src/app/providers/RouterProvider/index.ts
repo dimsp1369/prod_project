@@ -1,3 +1,3 @@
-import AppRouter from "app/providers/RouterProvider/ui/AppRouter";
+import AppRouter from 'app/providers/RouterProvider/ui/AppRouter';
 
-export default AppRouter
+export default AppRouter;

@@ -1,2 +1,1 @@
-export {TranslateButton} from "./ui/TranslateButton";
-
+export { TranslateButton } from './ui/TranslateButton';
