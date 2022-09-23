@@ -2,6 +2,7 @@ module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
+		jest:true
 	},
 	extends: [
 		'plugin:react/recommended',
@@ -37,7 +38,8 @@ module.exports = {
 		'import/no-extraneous-dependencies': 'off',
 		'no-underscore-dangle': 'off',
 		//markupOnly опция которая будет отлавливать переводы только в jsx
-		"i18next/no-literal-string": [2, { "markupOnly": true }]
+		"i18next/no-literal-string": [2, { "markupOnly": true }],
+		'max-len': ['error', {ignoreComments: true, code: 120}]
 	},
 	globals: {
 		_IS_DEV: true,
