@@ -39,5 +39,11 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  //Добавление файла настроек jest
+  "include": [
+    "./config/jest/jestSetup.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+  ]
 }

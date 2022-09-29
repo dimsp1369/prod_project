@@ -1,9 +1,14 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+
 import { BuildOptions } from './types/config';
 
-export default function buildPlugin({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
+export default function buildPlugin({
+   paths,
+   isDev,
+}: BuildOptions): webpack.WebpackPluginInstance[] {
    return [
       new HtmlWebpackPlugin({
          template: paths.html,
@@ -17,5 +22,7 @@ export default function buildPlugin({ paths, isDev }: BuildOptions): webpack.Web
       new webpack.DefinePlugin({
          _IS_DEV: JSON.stringify(isDev),
       }),
+      // Плагин для анализа размера приложения
+      new BundleAnalyzerPlugin({ openAnalyzer: false }),
    ];
 }

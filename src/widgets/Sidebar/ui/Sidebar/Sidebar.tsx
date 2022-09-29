@@ -16,8 +16,17 @@ export function Sidebar({ className }: SidebarProps) {
    };
 
    return (
-      <div className={classNames(cls.sidebar, { [cls.collapse]: toggleCollapse }, [className])}>
-         <button type="button" onClick={onToggleCollapse}>Toggle</button>
+      <div
+         data-testid="sidebar"
+         className={classNames(cls.sidebar, { [cls.collapse]: toggleCollapse }, [className])}
+      >
+         <button
+            type="button"
+            data-testid="sidebar-toggle"
+            onClick={onToggleCollapse}
+         >
+            Toggle
+         </button>
          <div className={classNames(cls.switchers, { [cls.switcher_collapse]: toggleCollapse })}>
             <ThemeButton />
             <TranslateButton className={cls.lang} />
