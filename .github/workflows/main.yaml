@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install modules
-        run: npm ci
+        run: npm i
       - name: Build production project
         run: npm run build:prod
       - name: Testing Linter
