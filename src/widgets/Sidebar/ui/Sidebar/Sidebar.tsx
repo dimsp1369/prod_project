@@ -25,7 +25,7 @@ export function Sidebar({ className }: SidebarProps) {
             data-testid="sidebar-toggle"
             onClick={onCollapse}
          >
-            Toggle
+            {collapse ? '<' : '>'}
          </Button>
          <div className={classNames(cls.switchers, { [cls.switcher_collapse]: collapse })}>
             <ThemeButton />
