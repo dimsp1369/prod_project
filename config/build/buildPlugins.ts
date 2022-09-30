@@ -9,7 +9,7 @@ export default function buildPlugin({
    paths,
    isDev,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
-   return [
+   const plugins = [
       new HtmlWebpackPlugin({
          template: paths.html,
       }),
@@ -22,7 +22,12 @@ export default function buildPlugin({
       new webpack.DefinePlugin({
          _IS_DEV: JSON.stringify(isDev),
       }),
-      // Плагин для анализа размера приложения
-      new BundleAnalyzerPlugin({ openAnalyzer: false }),
    ];
+
+   if (isDev) {
+      // Плагин для анализа размера приложения
+      plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+   }
+
+   return plugins;
 }
