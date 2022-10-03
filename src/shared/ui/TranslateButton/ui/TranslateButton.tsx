@@ -7,18 +7,18 @@ interface TranslateButtonProps {
 }
 
 export const TranslateButton = ({ className }: TranslateButtonProps) => {
-   const { t, i18n } = useTranslation();
-   const onTranslate = () => {
-      i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-   };
+    const { t, i18n } = useTranslation();
+    const onTranslate = () => {
+        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+    };
 
-   return (
-      <Button
-         className={classNames('', {}, [className])}
-         theme={ButtonTheme.CLEAR}
-         onClick={onTranslate}
-      >
-         {t('lang')}
-      </Button>
-   );
+    return (
+        <Button
+            className={classNames('', {}, [className])}
+            theme={ButtonTheme.CLEAR}
+            onClick={onTranslate}
+        >
+            {t('lang')}
+        </Button>
+    );
 };

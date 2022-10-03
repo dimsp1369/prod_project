@@ -10,22 +10,22 @@ export enum AppRouter {
 }
 
 export const RouterPath: Record<AppRouter, string> = {
-   [AppRouter.MAIN]: '/',
-   [AppRouter.ABOUT]: '/about',
-   [AppRouter.NOT_FOUND]: '*',
+    [AppRouter.MAIN]: '/',
+    [AppRouter.ABOUT]: '/about',
+    [AppRouter.NOT_FOUND]: '*',
 };
 
 export const routeConfig: Record<AppRouter, RouteProps> = {
-   [AppRouter.MAIN]: {
-      path: RouterPath.main,
-      element: <MainPage />,
-   },
-   [AppRouter.ABOUT]: {
-      path: RouterPath.about,
-      element: <AboutPage />,
-   },
-   [AppRouter.NOT_FOUND]: {
-      path: RouterPath.not_found,
-      element: <NotFoundPage />,
-   },
+    [AppRouter.MAIN]: {
+        path: RouterPath.main,
+        element: <MainPage />,
+    },
+    [AppRouter.ABOUT]: {
+        path: RouterPath.about,
+        element: <AboutPage />,
+    },
+    [AppRouter.NOT_FOUND]: {
+        path: RouterPath.not_found,
+        element: <NotFoundPage />,
+    },
 };

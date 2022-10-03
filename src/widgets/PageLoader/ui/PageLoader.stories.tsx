@@ -6,11 +6,11 @@ import { PageLoader } from 'widgets/PageLoader';
 import { ThemeDecorator } from 'shared/config/storybook/Decorators/ThemeDecorator';
 
 export default {
-   title: 'widget/PageLoader',
-   component: PageLoader,
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
+    title: 'widget/PageLoader',
+    component: PageLoader,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof PageLoader>;
 
 const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />;

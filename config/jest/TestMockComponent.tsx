@@ -1,9 +1,9 @@
 import React from 'react';
 
 const TestMockComponent = function () {
-   return (
-      <div />
-   );
+    return (
+        <div />
+    );
 };
 
 export default TestMockComponent;

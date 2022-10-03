@@ -7,19 +7,19 @@ interface BugButtonProps {
 }
 
 export const BugButton = ({ className }: BugButtonProps) => {
-   const { t } = useTranslation();
-   const [isThrow, setIsThrow] = useState(false);
+    const { t } = useTranslation();
+    const [isThrow, setIsThrow] = useState(false);
 
-   useEffect(() => {
-      if (isThrow) {
-         throw new Error();
-      }
-   }, [isThrow]);
+    useEffect(() => {
+        if (isThrow) {
+            throw new Error();
+        }
+    }, [isThrow]);
 
-   const onThrow = () => {
-      setIsThrow(true);
-   };
-   return (
-      <Button onClick={onThrow}>{t('Bug Test')}</Button>
-   );
+    const onThrow = () => {
+        setIsThrow(true);
+    };
+    return (
+        <Button onClick={onThrow}>{t('Bug Test')}</Button>
+    );
 };

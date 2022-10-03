@@ -8,16 +8,16 @@ interface PageErrorProps {
 }
 
 export const PageError = ({ className }: PageErrorProps) => {
-   const { t } = useTranslation();
+    const { t } = useTranslation();
 
-   const reloadPage = () => {
-      // eslint-disable-next-line no-restricted-globals
-      location.reload();
-   };
-   return (
-      <div className={classNames(cls.pageError, {}, [className])}>
-         <p>{t('Oops...Something went wrong!')}</p>
-         <Button onClick={reloadPage}>{t('Reload page')}</Button>
-      </div>
-   );
+    const reloadPage = () => {
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
+    };
+    return (
+        <div className={classNames(cls.pageError, {}, [className])}>
+            <p>{t('Oops...Something went wrong!')}</p>
+            <Button onClick={reloadPage}>{t('Reload page')}</Button>
+        </div>
+    );
 };

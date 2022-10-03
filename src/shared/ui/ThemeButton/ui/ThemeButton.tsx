@@ -8,10 +8,10 @@ interface ThemeButtonProps {
 }
 
 export const ThemeButton = ({ className }: ThemeButtonProps) => {
-   const { theme, toggleTheme } = useTheme();
-   return (
-      <Button theme={ButtonTheme.CLEAR} onClick={toggleTheme}>
-         {theme === Theme.LIGHT ? <LightTheme /> : <DarkTheme />}
-      </Button>
-   );
+    const { theme, toggleTheme } = useTheme();
+    return (
+        <Button theme={ButtonTheme.CLEAR} onClick={toggleTheme}>
+            {theme === Theme.LIGHT ? <LightTheme /> : <DarkTheme />}
+        </Button>
+    );
 };

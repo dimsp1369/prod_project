@@ -6,12 +6,12 @@ interface AboutPageProps {
 }
 
 const AboutPage = ({ className }: AboutPageProps) => {
-   const { t } = useTranslation('about');
-   return (
-      <div>
-         {t('aboutUs')}
-      </div>
-   );
+    const { t } = useTranslation('about');
+    return (
+        <div>
+            {t('aboutUs')}
+        </div>
+    );
 };
 
 export default AboutPage;
