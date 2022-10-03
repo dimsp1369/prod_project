@@ -8,10 +8,11 @@ import { useTranslation } from 'react-i18next';
 import { RouterPath } from 'shared/config/routeConfig/routeConfig';
 import MainIcon from 'shared/assets/icons/home.svg';
 import AboutIcon from 'shared/assets/icons/info.svg';
+import { BugButton } from 'widgets/PageError';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-    className?: string
+   className?: string;
 }
 
 export function Sidebar({ className }: SidebarProps) {
@@ -55,6 +56,9 @@ export function Sidebar({ className }: SidebarProps) {
                     <AboutIcon className={cls.icon} />
                     <span className={cls.link_item}>{t('aboutUs')}</span>
                 </AppLink>
+            </div>
+            <div className={cls.bugTest_btn}>
+                <BugButton />
             </div>
             <div className={cls.switchers}>
                 <ThemeButton />

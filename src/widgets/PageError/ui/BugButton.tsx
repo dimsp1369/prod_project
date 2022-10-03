@@ -1,4 +1,4 @@
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonSize } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 
@@ -20,6 +20,6 @@ export const BugButton = ({ className }: BugButtonProps) => {
         setIsThrow(true);
     };
     return (
-        <Button onClick={onThrow}>{t('Bug Test')}</Button>
+        <Button onClick={onThrow} size={ButtonSize.M}>{t('Bug Test')}</Button>
     );
 };
