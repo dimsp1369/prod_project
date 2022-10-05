@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import './styles/index.scss';
+
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/className';
 import AppRouter from 'app/providers/RouterProvider';
