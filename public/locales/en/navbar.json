@@ -1,5 +1,8 @@
 {
   "mainPage": "MAIN",
   "aboutUs": "ABOUT",
-  "login": "LOGIN"
+  "login": "LOGIN",
+  "Submit": "Submit",
+  "User name": "User name",
+  "Password": "Password"
 }

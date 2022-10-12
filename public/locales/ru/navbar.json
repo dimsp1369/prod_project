@@ -1,5 +1,8 @@
 {
   "mainPage": "ГЛАВНАЯ",
   "aboutUs": "О НАС",
-  "login": "ВОЙТИ"
+  "login": "ВОЙТИ",
+  "Submit": "Войти",
+  "User name": "Имя пользователя",
+  "Password": "Пароль"
 }
