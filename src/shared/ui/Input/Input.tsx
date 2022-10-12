@@ -10,8 +10,7 @@ interface InputProps extends HTMLInputProps {
     value?: string,
     label?:string,
     onChange?: (value: string) => void
-    min?: number,
-    max?: number
+
 }
 
 export const Input = memo((props: InputProps) => {
@@ -21,8 +20,6 @@ export const Input = memo((props: InputProps) => {
         onChange,
         value,
         label,
-        min = 4,
-        max = 20,
         ...otherProps
     } = props;
 
@@ -31,10 +28,10 @@ export const Input = memo((props: InputProps) => {
     const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.value) {
             setIsFilled(true);
-            onChange?.(e.target.value);
         } else {
             setIsFilled(false);
         }
+        onChange?.(e.target.value);
     };
 
     return (
@@ -42,12 +39,10 @@ export const Input = memo((props: InputProps) => {
             <input
                 type={type}
                 value={value}
-                minLength={min}
-                maxLength={max}
                 onChange={onChangeInput}
                 {...otherProps}
             />
-            {label && <label htmlFor={type} className={isFilled && cls.active}>{label}</label>}
+            {label && <label htmlFor={type} className={isFilled ? cls.active : ''}>{label}</label>}
         </div>
     );
 });

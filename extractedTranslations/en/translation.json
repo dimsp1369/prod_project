@@ -1,5 +1,7 @@
 {
   "Bug Test": "Bug Test",
+  "Login form": "Login form",
+  "LoginForm": "LoginForm",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Fugit, illum": {
       "": ""
@@ -18,7 +20,9 @@
   "Submit": "Submit",
   "User name": "User name",
   "aboutUs": "aboutUs",
+  "errorCredentials": "errorCredentials",
   "lang": "lang",
   "login": "login",
+  "logout": "logout",
   "mainPage": "mainPage"
 }

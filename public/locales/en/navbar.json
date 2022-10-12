@@ -4,5 +4,8 @@
   "login": "LOGIN",
   "Submit": "Submit",
   "User name": "User name",
-  "Password": "Password"
+  "Password": "Password",
+  "LoginForm": "Login",
+  "errorCredentials": "Incorrect username or password",
+  "logout": "LOGOUT"
 }

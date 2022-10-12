@@ -1,4 +1,5 @@
 {
+  "LoginForm": "",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Fugit, illum": {
       "": ""
@@ -8,6 +9,8 @@
   "Submit": "",
   "User name": "",
   "aboutUs": "",
+  "errorCredentials": "",
   "login": "",
+  "logout": "",
   "mainPage": ""
 }
