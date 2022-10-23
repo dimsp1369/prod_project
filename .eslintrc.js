@@ -48,7 +48,8 @@ module.exports = {
     "no-param-reassign": "off"
   },
   globals: {
-    _IS_DEV: true
+    _IS_DEV: true,
+    __API__: true
   },
   overrides: [{
     files: ['**/src/**/*.{test,stories}.{ts,tsx}',],

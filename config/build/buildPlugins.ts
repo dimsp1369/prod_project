@@ -8,6 +8,7 @@ import { BuildOptions } from './types/config';
 export default function buildPlugin({
     paths,
     isDev,
+    apiUrl,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({
@@ -21,6 +22,7 @@ export default function buildPlugin({
         // Плагин позволяет передавать конфигурационные переменные в приложение
         new webpack.DefinePlugin({
             _IS_DEV: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
     ];
 
