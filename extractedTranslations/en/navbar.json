@@ -12,5 +12,6 @@
   "errorCredentials": "",
   "login": "",
   "logout": "",
-  "mainPage": ""
+  "mainPage": "",
+  "translate": "translate"
 }

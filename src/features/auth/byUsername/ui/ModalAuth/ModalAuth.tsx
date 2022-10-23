@@ -15,7 +15,7 @@ export const ModalAuth = (props: ModalAuthProps) => {
             onClose={onClose}
             lazy
         >
-            <LoginFormLazy />
+            <LoginFormLazy onSuccess={onClose} />
         </Modal>
     );
 };

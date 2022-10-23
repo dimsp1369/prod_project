@@ -24,7 +24,7 @@ Each slice, in turn, consists of **segments**. These are tiny modules that are m
 ### 3. Scripts
 
 
-### 3. Sources
+### 4. Sources
 
  1. https://github.com/reg-viz/reg-cli -- Репозиторий по отрисовке скриншитного тестирования
  2. https://feature-sliced.design/ - Architectural methodology for frontend projects

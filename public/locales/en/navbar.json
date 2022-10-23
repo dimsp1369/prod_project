@@ -1,11 +1,13 @@
 {
   "mainPage": "MAIN",
   "aboutUs": "ABOUT",
+  "profile": "PROFILE",
   "login": "LOGIN",
   "Submit": "Submit",
   "User name": "User name",
   "Password": "Password",
   "LoginForm": "Login",
   "errorCredentials": "Incorrect username or password",
-  "logout": "LOGOUT"
+  "logout": "LOGOUT",
+  "translate": "RUS"
 }

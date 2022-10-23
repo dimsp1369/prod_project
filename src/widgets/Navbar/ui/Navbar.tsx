@@ -1,4 +1,6 @@
-import React, { Suspense, useCallback, useState } from 'react';
+import React, {
+    memo, Suspense, useCallback, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/className';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthDataState, userActions } from 'entity/User';
@@ -12,13 +14,17 @@ interface NavbarProps {
    className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getAuthDataState);
     const dispatch = useDispatch();
 
     const onCloseModal = useCallback(() => {
-        setIsAuthModal((prevState) => !prevState);
+        setIsAuthModal(false);
+    }, [setIsAuthModal]);
+
+    const onOpenModal = useCallback(() => {
+        setIsAuthModal(true);
     }, [setIsAuthModal]);
 
     const onLogout = useCallback(() => {
@@ -27,10 +33,10 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
-            {authData ? <LogoutBtn onLogout={onLogout} /> : <LoginBtn onCloseModal={onCloseModal} /> }
+            {authData ? <LogoutBtn onLogout={onLogout} /> : <LoginBtn onOpenModal={onOpenModal} /> }
             <Suspense fallback={<PageLoader />}>
                 {isAuthModal && <ModalAuth isOpen={isAuthModal} onClose={onCloseModal} />}
             </Suspense>
         </div>
     );
-};
+});

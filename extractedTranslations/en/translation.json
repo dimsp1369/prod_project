@@ -16,13 +16,15 @@
   },
   "Page Not Found": "Page Not Found",
   "Password": "Password",
+  "Profile Info": "Profile Info",
   "Reload page": "Reload page",
   "Submit": "Submit",
   "User name": "User name",
   "aboutUs": "aboutUs",
   "errorCredentials": "errorCredentials",
-  "lang": "lang",
+  "lang": "RUS",
   "login": "login",
   "logout": "logout",
-  "mainPage": "mainPage"
+  "mainPage": "mainPage",
+  "translate": "translate"
 }

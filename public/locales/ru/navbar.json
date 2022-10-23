@@ -1,11 +1,13 @@
 {
   "mainPage": "ГЛАВНАЯ",
   "aboutUs": "О НАС",
+  "profile": "ПРОФИЛЬ",
   "login": "ВОЙТИ",
   "Submit": "Войти",
   "User name": "Имя пользователя",
   "Password": "Пароль",
   "LoginForm": "Авторизация",
   "errorCredentials": "Неправильные имя пользователя или пароль",
-  "logout": "Выйти"
+  "logout": "ВЫЙТИ",
+  "translate": "ENG"
 }
