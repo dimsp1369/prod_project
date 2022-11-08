@@ -1,30 +1,46 @@
 import { classNames } from 'shared/lib/classNames/className';
-import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
+import { Loader } from 'shared/ui/Loader/Loader';
+import { TextField } from 'shared/ui/TextField/TextField';
+import { Profile } from 'entity/Profile';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import cls from './ProfileCard.module.scss';
-import { getProfileData } from '../model/selectors/getProfileSelector/getProfileSelector';
 
 interface ProfileCardProps {
     className?: string
+    data?: Profile
+    error?: string
+    isLoading?: boolean
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-    const { className } = props;
+    const {
+        className, error, isLoading, data,
+    } = props;
     const { t } = useTranslation('profile');
-    const data = useSelector(getProfileData);
+
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.profileCard, { [cls.loading]: true }, [className])}>
+                <Loader />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.profileCard, {}, [className])}>
-            <div>
-                <Text title={t('Profile Info')} />
-                <Button theme={ButtonTheme.OUTLINE}>{t('Edit')}</Button>
-            </div>
-            <div>
-                <Input label={t('First name')} value={data?.first} />
-                <Input label={t('Last name')} value={data?.lastname} />
+            {data?.avatar && (
+                <div className={cls.avatarWrapper}>
+                    <Avatar src={data?.avatar} />
+                </div>
+            ) }
+            <div className={cls.items}>
+                <TextField title={t('First name')} value={data?.first} />
+                <TextField title={t('Last name')} value={data?.lastname} />
+                <TextField title={t('Age')} value={data?.age} />
+                <TextField title={t('Country')} value={data?.country} />
+                <TextField title={t('City')} value={data?.city} />
+                <TextField title={t('Currency')} value={data?.currency} />
             </div>
         </div>
     );
