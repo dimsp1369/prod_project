@@ -1,19 +1,23 @@
 import {
-    getUserProfile, profileActions, ProfileCard, updateUserProfile,
+    getProfileError,
+    getProfileForm,
+    getProfileIsLoading,
+    getProfileReadOnly,
+    getUserProfile,
+    getValidateProfileErrors,
+    profileActions,
+    ProfileCard,
+    updateUserProfile,
 } from 'entity/Profile';
 import { EditableProfileCard } from 'features/profileCard/editableProfileCard';
 import React, { useCallback, useEffect } from 'react';
 import { ProfileCardHeader } from 'features/profileCard/ProfileCardHeader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import {
-    getProfileError,
-    getProfileForm,
-    getProfileIsLoading,
-    getProfileReadOnly,
-} from 'entity/Profile/model/selectors/getProfileSelector/getProfileSelector';
+
 import { Currency } from 'entity/Currency/model/types/currency';
 import { Country } from 'entity/Country/model/types/country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 export const UserProfile = () => {
     const dispatch = useAppDispatch();
@@ -21,6 +25,7 @@ export const UserProfile = () => {
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readOnly = useSelector(getProfileReadOnly);
+    const validateError = useSelector(getValidateProfileErrors);
 
     useEffect(() => {
         dispatch(getUserProfile());
@@ -62,7 +67,7 @@ export const UserProfile = () => {
     const onChangeAvatar = useCallback((value?: string) => {
         dispatch(profileActions.saveUpdate({ avatar: value || '' }));
     }, [dispatch]);
-
+    console.log(validateError);
     return (
         <>
             <ProfileCardHeader
@@ -74,17 +79,24 @@ export const UserProfile = () => {
             {readOnly
                 ? <ProfileCard error={error} data={formData} isLoading={isLoading} />
                 : (
-                    <EditableProfileCard
-                        data={formData}
-                        onChangeFirstName={onChangeFirstName}
-                        onChangeLastName={onChangeLastName}
-                        onChangeAge={onChangeAge}
-                        onChangeCountry={onChangeCountry}
-                        onChangeCity={onChangeCity}
-                        onChangeCurrency={onChangeCurrency}
-                        onChangeUsername={onChangeUsername}
-                        onChangeAvatar={onChangeAvatar}
-                    />
+                    <>
+                        <div>
+                            {validateError?.length ? validateError.map((error) => (
+                                <Text key={error} text={error} theme={TextTheme.ERROR} />
+                            )) : null}
+                        </div>
+                        <EditableProfileCard
+                            data={formData}
+                            onChangeFirstName={onChangeFirstName}
+                            onChangeLastName={onChangeLastName}
+                            onChangeAge={onChangeAge}
+                            onChangeCountry={onChangeCountry}
+                            onChangeCity={onChangeCity}
+                            onChangeCurrency={onChangeCurrency}
+                            onChangeUsername={onChangeUsername}
+                            onChangeAvatar={onChangeAvatar}
+                        />
+                    </>
                 )}
         </>
     );
