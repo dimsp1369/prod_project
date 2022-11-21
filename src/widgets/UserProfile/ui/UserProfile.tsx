@@ -67,7 +67,7 @@ export const UserProfile = () => {
     const onChangeAvatar = useCallback((value?: string) => {
         dispatch(profileActions.saveUpdate({ avatar: value || '' }));
     }, [dispatch]);
-    console.log(validateError);
+
     return (
         <>
             <ProfileCardHeader
