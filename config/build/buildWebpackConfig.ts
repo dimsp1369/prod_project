@@ -15,6 +15,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             filename: '[name].[hash].js',
             path: paths.build,
             clean: true,
+            publicPath: '/',
         },
         module: {
             rules: buildLoaders(options),
