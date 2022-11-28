@@ -26,12 +26,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
             </div>
         );
     }
-
     return (
         <div className={classNames(cls.profileCard, {}, [className])}>
             {data?.avatar && (
                 <div className={cls.avatarWrapper}>
-                    <Avatar src={data?.avatar} />
+                    <Avatar src={data?.avatar} border={10} />
                 </div>
             ) }
             <div className={cls.items}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { ThemeDecorator } from 'shared/config/storybook/Decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { OutlineDark } from 'shared/ui/Button/Button.stories';
@@ -60,3 +60,17 @@ ErrorDark.args = {
     theme: TextTheme.ERROR,
 };
 ErrorDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+    title: 'Title Size M',
+    text: 'Text Size M',
+    size: TextSize.M,
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'Title Size L',
+    text: 'Text Size L',
+    size: TextSize.L,
+};

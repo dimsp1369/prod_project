@@ -1,5 +1,7 @@
 {
+  "": "",
   "Age": "Age",
+  "Article not found": "Article not found",
   "Avatar": "Avatar",
   "Bug Test": "Bug Test",
   "Cancel": "Cancel",
@@ -8,6 +10,7 @@
   "Currency": "Currency",
   "Edit": "Edit",
   "First name": "First name",
+  "Got an error during the fetching article": "Got an error during the fetching article",
   "Last name": "Last name",
   "Login form": "Login form",
   "LoginForm": "LoginForm",

@@ -4,11 +4,8 @@ import { Profile } from '../types/profileSchema';
 
 export const getUserProfile = createAsyncThunk<Profile, void, ThunkConfig<string>>(
     'profile/getProfileData',
-    async (authData, {
-        dispatch,
-        extra,
-        rejectWithValue,
-    }) => {
+    async (_, thunkApi) => {
+        const { extra, rejectWithValue } = thunkApi;
         try {
             const response = await extra.api.get<Profile>('/profile');
             if (!response.data) {

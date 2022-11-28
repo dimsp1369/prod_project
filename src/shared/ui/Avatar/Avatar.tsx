@@ -5,9 +5,9 @@ import cls from './Avatar.module.scss';
 interface AvatarProps {
     className?: string,
     src?: string,
-    diameter?: string,
-    width?: string,
-    height?: string,
+    border?: string | number,
+    width?: string | number,
+    height?: string | number,
     alt?: string
 }
 
@@ -15,17 +15,18 @@ export const Avatar = memo((props: AvatarProps) => {
     const {
         className,
         src,
-        diameter,
+        border,
         alt,
         width,
         height,
     } = props;
 
     const styles = useMemo<CSSProperties>(() => ({
-        width: width || diameter || '240px',
-        height: height || diameter || '100%',
-        borderRadius: diameter || undefined ? '50%' : '10px',
-    }), [height, diameter, width]);
+        width: width || '240px',
+        height: height || '100%',
+        // borderRadius: radius || undefined ? '50%' : '10px',
+        borderRadius: border,
+    }), [height, border, width]);
 
     return (
         <img
