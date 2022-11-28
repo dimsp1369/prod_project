@@ -9,6 +9,7 @@ import { To } from '@remix-run/router';
 import { NavigateOptions } from 'react-router';
 import { ProfileSchema } from 'entity/Profile';
 import { ArticleDetailsSchema } from 'entity/Article';
+import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 
 export interface StateSchema {
    counter: CounterSchema,
@@ -17,7 +18,8 @@ export interface StateSchema {
    // Async reducers
    profile?: ProfileSchema,
    login?: LoginSchema
-   articleDetails?: ArticleDetailsSchema
+   articleDetails?: ArticleDetailsSchema,
+   articleDetailsComment?: ArticleDetailsCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

@@ -109,13 +109,16 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://st3.depositphotos.com/3250631/32474/i/450/depositphotos_324745194-stock-photo-anonymous-man-hiding-his-face.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "12345",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://st3.depositphotos.com/3250631/32474/i/450/depositphotos_324745194-stock-photo-anonymous-man-hiding-his-face.jpg"
+
     }
   ],
   "profile": {

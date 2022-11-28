@@ -1,4 +1,6 @@
 {
   "Article not found": "Article not found",
-  "Got an error during the fetching article": "Got an error during the fetching article"
+  "Got an error during the fetching article": "Got an error during the fetching article",
+  "Comments": "Comments",
+  "There are no comments yet, you can be the first one!": "There are no comments yet, you can be the first one!"
 }
