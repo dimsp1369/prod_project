@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import AddCommentFrom from './AddCommentForm';
 
 export default {
-    title: 'pages/AddCommentFrom',
+    title: 'features/AddCommentFrom',
     component: AddCommentFrom,
     argTypes: {
         backgroundColor: { control: 'color' },
