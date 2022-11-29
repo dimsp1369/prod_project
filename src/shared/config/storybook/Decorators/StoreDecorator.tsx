@@ -4,11 +4,14 @@ import { loginReducer } from 'features/auth/byUsername/model/slice/loginSlice';
 import { profileReducer } from 'entity/Profile';
 import { ReducersList } from 'shared/ui/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from 'entity/Article/model/slices/articleDetailSlice';
+import { addCommentReducer } from 'features/addComment/model/slices/addCommentFormSlice';
 
 const defaultAsyncReducers: ReducersList = {
     login: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
+    addCommentForm: addCommentReducer,
+    articleDetailsComment: articleDetailsReducer,
 };
 
 export const StoreDecorator = (

@@ -1,4 +1,5 @@
 import {
+    getProfileData,
     getProfileError,
     getProfileForm,
     getProfileIsLoading,
@@ -18,6 +19,9 @@ import { useSelector } from 'react-redux';
 import { Currency } from 'entity/Currency/model/types/currency';
 import { Country } from 'entity/Country/model/types/country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
+import { getAuthDataState } from 'entity/User';
 
 export const UserProfile = () => {
     const dispatch = useAppDispatch();
@@ -26,10 +30,14 @@ export const UserProfile = () => {
     const isLoading = useSelector(getProfileIsLoading);
     const readOnly = useSelector(getProfileReadOnly);
     const validateError = useSelector(getValidateProfileErrors);
+    const authData = useSelector(getAuthDataState);
+    const profileData = useSelector(getProfileData);
+    const isCanEdit = authData?.id === profileData?.id;
+    const { id } = useParams<{id: string}>();
 
-    useEffect(() => {
-        dispatch(getUserProfile());
-    }, [dispatch]);
+    useInitialEffect(() => {
+        dispatch(getUserProfile(id));
+    });
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadOnly(false));
@@ -75,6 +83,7 @@ export const UserProfile = () => {
                 readOnly={readOnly}
                 onEditCancel={onEditCancel}
                 onEditSave={onEditSave}
+                isCanEdit={isCanEdit}
             />
             {readOnly
                 ? <ProfileCard error={error} data={formData} isLoading={isLoading} />

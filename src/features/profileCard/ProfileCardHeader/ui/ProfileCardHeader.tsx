@@ -9,12 +9,13 @@ interface ProfileCardHeaderProps {
     readOnly?: boolean,
     onEdit?: () => void,
     onEditCancel?: () => void
-    onEditSave?: () => void
+    onEditSave?: () => void,
+    isCanEdit?: boolean
 }
 
 export const ProfileCardHeader = (props: ProfileCardHeaderProps) => {
     const {
-        className, onEdit, onEditCancel, readOnly, onEditSave,
+        className, onEdit, onEditCancel, readOnly, onEditSave, isCanEdit,
     } = props;
     const { t } = useTranslation('profile');
     return (
@@ -23,7 +24,7 @@ export const ProfileCardHeader = (props: ProfileCardHeaderProps) => {
                 <Text title={t('Profile Info')} />
                 <div className={cls.buttonGroup}>
                     {readOnly
-                        ? <Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>{t('Edit')}</Button>
+                        ? isCanEdit && <Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>{t('Edit')}</Button>
                         : (
                             <>
                                 <Button

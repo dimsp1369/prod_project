@@ -102,6 +102,24 @@
       "text": "some comment 2",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "id": "znkP4_X",
+      "text": "fdgdfg",
+      "userId": "",
+      "articleId": ""
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "New comment",
+      "id": "RMFMK2E"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Hello World",
+      "id": "DepigiY"
     }
   ],
   "users": [
@@ -110,7 +128,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://st3.depositphotos.com/3250631/32474/i/450/depositphotos_324745194-stock-photo-anonymous-man-hiding-his-face.jpg"
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
       "id": "2",
@@ -118,17 +136,30 @@
       "password": "12345",
       "role": "USER",
       "avatar": "https://st3.depositphotos.com/3250631/32474/i/450/depositphotos_324745194-stock-photo-anonymous-man-hiding-his-face.jpg"
-
     }
   ],
-  "profile": {
-    "first": "Dmitrii",
-    "lastname": "S",
-    "age": 23,
-    "currency": "US",
-    "country": "USA",
-    "city": "Sacramento",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Dmitrii",
+      "lastname": "S",
+      "age": 23,
+      "currency": "US",
+      "country": "USA",
+      "city": "Sacramento",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Don",
+      "lastname": "Jons",
+      "age": 232,
+      "currency": "US",
+      "country": "CANADA",
+      "city": "Toronto",
+      "username": "user",
+      "avatar": "https://st3.depositphotos.com/3250631/32474/i/450/depositphotos_324745194-stock-photo-anonymous-man-hiding-his-face.jpg"
+    }
+  ]
 }
