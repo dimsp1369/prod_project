@@ -1,9 +1,4 @@
 import React from 'react';
-import { RouterPath } from 'shared/config/routeConfig/routeConfig';
-import MainIcon from 'shared/assets/icons/home.svg';
-import AboutIcon from 'shared/assets/icons/info.svg';
-import ProfileIcon from 'shared/assets/icons/profile.svg';
-import ArticlesIcon from 'shared/assets/icons/articles.svg';
 
 export interface SidebarItemType {
    path: string,
@@ -11,28 +6,3 @@ export interface SidebarItemType {
    Icon: React.VFC<React.SVGProps<SVGSVGElement>>,
    authOnly?: boolean
 }
-
-export const SidebarItemsList: SidebarItemType[] = [
-    {
-        path: RouterPath.main,
-        Icon: MainIcon,
-        text: 'mainPage',
-    },
-    {
-        path: RouterPath.about,
-        Icon: AboutIcon,
-        text: 'aboutUs',
-    },
-    {
-        path: RouterPath.profile,
-        Icon: ProfileIcon,
-        text: 'profile',
-        authOnly: true,
-    },
-    {
-        path: RouterPath.articles,
-        Icon: ArticlesIcon,
-        text: 'articles',
-        authOnly: true,
-    },
-];
