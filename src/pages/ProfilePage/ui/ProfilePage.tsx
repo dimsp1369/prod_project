@@ -3,6 +3,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/ui/DynamicModuleLoader
 import { profileReducer } from 'entity/Profile';
 import { classNames } from 'shared/lib/classNames/className';
 import { UserProfile } from 'widgets/UserProfile';
+import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
 import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -15,9 +16,11 @@ const initialReducers: ReducersList = {
 
 const ProfilePage = ({ className }: ProfilePageProps) => (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-        <div className={classNames(cls.profilePage, {}, [className])}>
-            <UserProfile />
-        </div>
+        <PageContainer className={classNames(cls.profilePage, {}, [className])}>
+            <div className={cls.profileWrapper}>
+                <UserProfile />
+            </div>
+        </PageContainer>
     </DynamicModuleLoader>
 );
 

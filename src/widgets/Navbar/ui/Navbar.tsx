@@ -32,11 +32,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.navbar, {}, [className])}>
+        <header className={classNames(cls.navbar, {}, [className])}>
             {authData ? <LogoutBtn onLogout={onLogout} /> : <LoginBtn onOpenModal={onOpenModal} /> }
             <Suspense fallback={<PageLoader />}>
                 {isAuthModal && <ModalAuth isOpen={isAuthModal} onClose={onCloseModal} />}
             </Suspense>
-        </div>
+        </header>
     );
 });

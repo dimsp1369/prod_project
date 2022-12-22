@@ -12,6 +12,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AddCommentForm } from 'features/addComment';
 import { RouterPath } from 'shared/config/routeConfig/routeConfig';
+import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
 import { getCommentsByArticleId } from '../../model/services/getCommentsByArticleId';
 import {
     postCommentForArticle,
@@ -51,14 +52,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <PageContainer className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 {t('Article not found')}
-            </div>
+            </PageContainer>
         );
     }
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <PageContainer className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                     {t('To articles')}
                 </Button>
@@ -66,7 +67,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 <Text title={t('Comments')} className={cls.commentsTitle} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList isLoading={commentsIsLoading} comments={comments} />
-            </div>
+            </PageContainer>
         </DynamicModuleLoader>
     );
 };

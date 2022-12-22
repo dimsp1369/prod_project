@@ -20,18 +20,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
         view = ArticleView.TILE,
     } = props;
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {
-                    new Array(view === ArticleView.TILE ? 9 : 3).fill(0).map((item, index) => (
-                        <ArticleListItemSkeleton view={view} key={index} />
-                    ))
-                }
-            </div>
-        );
-    }
-
     const renderArticle = (article: Article) => (
         <ArticleListItem article={article} view={view} key={article.id} />
     );
@@ -41,6 +29,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
             {articles.length > 0
                 ? articles.map(renderArticle)
                 : null}
+            {isLoading && (
+                new Array(view === ArticleView.TILE ? 9 : 3).fill(0).map((item, index) => (
+                    <ArticleListItemSkeleton view={view} key={index} />
+                ))
+            )}
         </div>
     );
 });
