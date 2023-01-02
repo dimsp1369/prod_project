@@ -4,27 +4,25 @@ import {
 import { counterReducer } from 'entity/Counter';
 import { userReducer } from 'entity/User';
 import { $api } from 'shared/api/api';
-import { To } from '@remix-run/router';
-import { NavigateOptions } from 'react-router';
+import { scrollSaverReducer } from 'features/scrollSaver';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './ReducerManager';
 
 export function createReduxStore(
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void,
 ) {
     const rootReducer: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scrollSaver: scrollSaverReducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);
 
     const extraArg: ThunkExtraArg = {
         api: $api,
-        navigate,
     };
 
     const store = configureStore({
@@ -43,4 +41,4 @@ export function createReduxStore(
     return store;
 }
 
-export type AppDispatch = ReturnType <typeof createReduxStore>['dispatch'];
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

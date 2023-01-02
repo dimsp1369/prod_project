@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
+import { PageContainer } from 'widgets/PageContainer/PageContainer';
 
 const MainPage = () => {
     const { t } = useTranslation('main');

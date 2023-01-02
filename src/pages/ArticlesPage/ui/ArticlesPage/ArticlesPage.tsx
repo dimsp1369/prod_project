@@ -5,12 +5,18 @@ import { DynamicModuleLoader, ReducersList } from 'shared/ui/DynamicModuleLoader
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
+
+import { PageContainer } from 'widgets/PageContainer/PageContainer';
 import { getNextArticlesStack } from '../../model/services/getArticles/getNextArticlesStack';
 import { getArticlesList } from '../../model/services/getArticles/getArticles';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
-import { getArticlesListIsLoading, getArticlesListPageNum, getArticlesListView } from '../../model/selectors/articles';
+import {
+    getArticlesListInited,
+    getArticlesListIsLoading,
+    getArticlesListPageNum,
+    getArticlesListView,
+} from '../../model/selectors/articles';
 
 interface ArticlesPageProps {
    className?: string;
@@ -28,14 +34,17 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesListIsLoading);
     const page = useSelector(getArticlesListPageNum);
     // const hasMore = useSelector(getArticlesListHasMore);
+    const inited = useSelector(getArticlesListInited);
 
     const onLoadNextPart = useCallback(() => {
         dispatch(getNextArticlesStack());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(getArticlesList({ page }));
+        if (!inited) {
+            dispatch(articlesPageActions.initState());
+            dispatch(getArticlesList({ page }));
+        }
     });
 
     const onChangeView = useCallback((view: ArticleView) => {
@@ -43,7 +52,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <PageContainer
                 className={classNames(cls.ArticlesPage, {}, [className])}
                 onScrollEnd={onLoadNextPart}

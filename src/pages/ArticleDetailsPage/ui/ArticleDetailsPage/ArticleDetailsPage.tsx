@@ -12,7 +12,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AddCommentForm } from 'features/addComment';
 import { RouterPath } from 'shared/config/routeConfig/routeConfig';
-import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
+
+import { PageContainer } from 'widgets/PageContainer/PageContainer';
 import { getCommentsByArticleId } from '../../model/services/getCommentsByArticleId';
 import {
     postCommentForArticle,

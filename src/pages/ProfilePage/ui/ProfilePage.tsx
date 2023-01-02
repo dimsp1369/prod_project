@@ -3,7 +3,8 @@ import { DynamicModuleLoader, ReducersList } from 'shared/ui/DynamicModuleLoader
 import { profileReducer } from 'entity/Profile';
 import { classNames } from 'shared/lib/classNames/className';
 import { UserProfile } from 'widgets/UserProfile';
-import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
+
+import { PageContainer } from 'widgets/PageContainer/PageContainer';
 import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
